@@ -12,18 +12,8 @@ if (!defined('YASH_MOTORS_INIT')) {
                 class="logo-img"
                 width="180"
                 height="48"
-                decoding="async"
-            >
+                decoding="async">
         </a>
-
-        <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
-            <ul class="nav-list">
-                <li><a href="<?php echo page_url('index'); ?>" class="nav-link<?php echo is_active_page('home') ? ' active' : ''; ?>">Home</a></li>
-                <li><a href="<?php echo page_url('services'); ?>" class="nav-link<?php echo is_active_page('services') ? ' active' : ''; ?>">Services</a></li>
-                <li><a href="<?php echo page_url('about'); ?>" class="nav-link<?php echo is_active_page('about') ? ' active' : ''; ?>">About Us</a></li>
-                <li><a href="<?php echo page_url('contact'); ?>" class="nav-link<?php echo is_active_page('contact') ? ' active' : ''; ?>">Contact</a></li>
-            </ul>
-        </nav>
 
         <div class="header-actions">
             <a href="tel:<?php echo preg_replace('/\s+/', '', $site['phone']); ?>" class="btn-premium btn-premium--primary header-cta">Call Us</a>
@@ -35,3 +25,29 @@ if (!defined('YASH_MOTORS_INIT')) {
         </div>
     </div>
 </header>
+
+<nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+    <div class="nav-drawer-brand">
+        <a href="<?php echo page_url('index'); ?>" class="nav-drawer-logo" aria-label="<?php echo htmlspecialchars($site['name']); ?> home">
+            <img
+                src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                alt="<?php echo htmlspecialchars($site['name']); ?>"
+                class="logo-img nav-drawer-logo-img"
+                width="180"
+                height="48"
+                decoding="async">
+        </a>
+    </div>
+
+    <ul class="nav-list">
+        <li><a href="<?php echo page_url('index'); ?>" class="nav-link<?php echo is_active_page('home') ? ' active' : ''; ?>">Home</a></li>
+        <li><a href="<?php echo page_url('services'); ?>" class="nav-link<?php echo is_active_page('services') ? ' active' : ''; ?>">Services</a></li>
+        <li><a href="<?php echo page_url('about'); ?>" class="nav-link<?php echo is_active_page('about') ? ' active' : ''; ?>">About Us</a></li>
+        <li><a href="<?php echo page_url('contact'); ?>" class="nav-link<?php echo is_active_page('contact') ? ' active' : ''; ?>">Contact</a></li>
+    </ul>
+
+    <div class="nav-mobile-cta">
+        <a href="tel:<?php echo preg_replace('/\s+/', '', $site['phone']); ?>" class="btn-premium btn-premium--primary btn-premium--block">Call Us</a>
+    </div>
+</nav>
+<div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>

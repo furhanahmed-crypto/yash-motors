@@ -24,7 +24,7 @@ return [
         'loader'      => IMAGE_BASE_URL . 'img-8.webp',
     ],
     'about' => [
-        'facility'    => IMAGE_BASE_URL . 'img-9.webp',
+        'facility'    => asset('assets/images/about-us-image.png'),
         'innovation'  => IMAGE_BASE_URL . 'img-5.webp',
     ],
     'services' => [

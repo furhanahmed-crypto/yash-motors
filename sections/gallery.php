@@ -52,7 +52,17 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div class="lightbox-content-premium">
-            <img src="" alt="" id="lightbox-image">
+            <div class="lightbox-track" id="lightbox-track">
+                <div class="lightbox-slide">
+                    <img src="" alt="" id="lightbox-image-prev">
+                </div>
+                <div class="lightbox-slide">
+                    <img src="" alt="" id="lightbox-image">
+                </div>
+                <div class="lightbox-slide">
+                    <img src="" alt="" id="lightbox-image-next">
+                </div>
+            </div>
         </div>
         <button class="lightbox-nav-premium lightbox-next-premium" id="lightbox-next" aria-label="Next image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
