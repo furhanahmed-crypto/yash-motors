@@ -10,7 +10,7 @@
             preload="auto"
             aria-hidden="true"
         >
-            <source src="<?php echo asset('assets/videos/4091381-hd_1920_1080_30fps.mp4'); ?>" type="video/mp4">
+            <source src="<?php echo asset('assets/videos/banner-video.mp4'); ?>" type="video/mp4">
         </video>
         <div class="hero-overlay-dark" aria-hidden="true"></div>
         <div class="hero-noise" aria-hidden="true"></div>
