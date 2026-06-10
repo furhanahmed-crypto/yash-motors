@@ -9,11 +9,14 @@ if (!defined('YASH_MOTORS_INIT')) {
         <div class="footer-grid footer-grid--three">
             <div class="footer-brand">
                 <a href="<?php echo page_url('index'); ?>" class="logo logo--footer">
-                    <span class="logo-mark" aria-hidden="true">Y</span>
-                    <span class="logo-text">
-                        <strong><?php echo htmlspecialchars($site['name']); ?></strong>
-                        <small><?php echo htmlspecialchars($site['tagline']); ?></small>
-                    </span>
+                    <img
+                        src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                        alt="<?php echo htmlspecialchars($site['name']); ?>"
+                        class="logo-img logo-img--footer"
+                        width="200"
+                        height="54"
+                        decoding="async"
+                    >
                 </a>
                 <p class="footer-desc"><?php echo htmlspecialchars($site['description']); ?></p>
                 <div class="social-links">

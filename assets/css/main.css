@@ -267,42 +267,27 @@ h4 { font-size: 1.125rem; }
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.875rem;
-    color: #fff;
     flex-shrink: 0;
+    line-height: 0;
+    transition: opacity var(--transition), transform var(--transition);
 }
 
-.logo-mark {
-    display: grid;
-    place-items: center;
-    width: 44px;
+.logo:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.logo-img {
+    display: block;
     height: 44px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--color-accent), #00ffbf);
-    color: var(--color-bg-dark);
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.35rem;
-    box-shadow: 0 4px 16px rgba(0, 255, 135, 0.25);
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
 }
 
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-}
-
-.logo-text strong {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    letter-spacing: -0.01em;
-}
-
-.logo-text small {
-    font-size: 0.7125rem;
-    opacity: 0.7;
-    letter-spacing: 0.06em;
-    font-weight: 500;
+.logo-img--footer {
+    height: 52px;
+    max-width: 200px;
 }
 
 .main-nav { flex: 1; display: flex; justify-content: center; }
@@ -2677,6 +2662,8 @@ body[data-page]:not([data-page="home"]) .site-header {
 
     .nav-toggle { display: flex; }
     .header-cta { display: none; }
+    .logo-img { height: 36px; max-width: 150px; }
+    .logo-img--footer { height: 44px; max-width: 170px; }
 
     .hero-premium { min-height: 520px; max-height: none; height: 85vh; }
     .hero-quick-highlights { display: none; }

@@ -6,11 +6,14 @@ if (!defined('YASH_MOTORS_INIT')) {
 <header class="site-header" id="site-header">
     <div class="container header-inner">
         <a href="<?php echo page_url('index'); ?>" class="logo" aria-label="<?php echo htmlspecialchars($site['name']); ?> home">
-            <span class="logo-mark" aria-hidden="true">Y</span>
-            <span class="logo-text">
-                <strong><?php echo htmlspecialchars($site['name']); ?></strong>
-                <small><?php echo htmlspecialchars($site['tagline']); ?></small>
-            </span>
+            <img
+                src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                alt="<?php echo htmlspecialchars($site['name']); ?>"
+                class="logo-img"
+                width="180"
+                height="48"
+                decoding="async"
+            >
         </a>
 
         <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
