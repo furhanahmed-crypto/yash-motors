@@ -1,0 +1,2 @@
+storage/submissions/*.json
+!storage/submissions/.gitkeep

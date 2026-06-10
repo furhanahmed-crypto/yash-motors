@@ -1,0 +1,7 @@
+DirectoryIndex index.php
+
+# Block access to internal folders
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(includes|config|storage|sections)/ - [F,L]
+</IfModule>
