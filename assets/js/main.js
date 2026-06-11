@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 5. Premium Lightbox Gallery (3-slide track for smooth drag)
+    // 5. Premium Lightbox Gallery (3-slide track slider)
     const galleryItems = document.querySelectorAll(".gallery-item-premium");
     const lightbox = document.getElementById("lightbox");
     const lightboxTrack = document.getElementById("lightbox-track");
@@ -182,258 +182,209 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxPrev = document.getElementById("lightbox-prev");
     const lightboxNext = document.getElementById("lightbox-next");
 
-    if (
-        galleryItems.length > 0 &&
-        lightbox &&
-        lightboxTrack &&
-        lightboxImg &&
-        lightboxImgPrev &&
-        lightboxImgNext
-    ) {
+    if (galleryItems.length > 0 && lightbox && lightboxTrack && lightboxImg && lightboxImgPrev && lightboxImgNext) {
+        if (lightbox.parentElement !== document.body) {
+            document.body.appendChild(lightbox);
+        }
+
         let currentIndex = 0;
-        let isDragging = false;
-        let isAnimating = false;
-        const lightboxContent = lightbox.querySelector(
-            ".lightbox-content-premium",
-        );
         const imagesList = Array.from(galleryItems).map((item) => {
             const img = item.querySelector("img");
             return {
-                src: img.getAttribute("src"),
-                alt: img.getAttribute("alt"),
+                src: img ? img.getAttribute("src") : "",
+                alt: img ? img.getAttribute("alt") : "",
             };
         });
         const canSwipe = imagesList.length > 1;
 
-        const preloadImages = () => {
-            imagesList.forEach((item) => {
-                const img = new Image();
-                img.src = item.src;
-            });
-        };
-
-        const getSlideWidth = () =>
-            lightboxContent ? lightboxContent.offsetWidth : 0;
-
-        const setSlideImage = (element, index) => {
-            element.src = imagesList[index].src;
-            element.alt = imagesList[index].alt;
-        };
-
         const updateSlides = () => {
+            if (!canSwipe) {
+                lightboxImg.src = imagesList[currentIndex].src;
+                lightboxImg.alt = imagesList[currentIndex].alt;
+                lightboxImgPrev.style.display = "none";
+                lightboxImgNext.style.display = "none";
+                return;
+            }
             const len = imagesList.length;
             const prevIdx = (currentIndex - 1 + len) % len;
             const nextIdx = (currentIndex + 1) % len;
-            setSlideImage(lightboxImgPrev, prevIdx);
-            setSlideImage(lightboxImg, currentIndex);
-            setSlideImage(lightboxImgNext, nextIdx);
-        };
 
-        const setTrackPosition = (deltaPx, animate) => {
-            const slideWidth = getSlideWidth();
-            lightboxTrack.style.transition = animate
-                ? "transform 0.35s var(--ease)"
-                : "none";
-            lightboxTrack.style.transform = `translateX(${-slideWidth + deltaPx}px)`;
-        };
+            lightboxImgPrev.src = imagesList[prevIdx].src;
+            lightboxImgPrev.alt = imagesList[prevIdx].alt;
 
-        const resetTrack = (animate) => setTrackPosition(0, animate);
+            lightboxImg.src = imagesList[currentIndex].src;
+            lightboxImg.alt = imagesList[currentIndex].alt;
 
-        const clearDragState = () => {
-            isDragging = false;
-            lightboxTrack.classList.remove("is-dragging");
-            if (lightboxContent) {
-                lightboxContent.classList.remove("is-dragging");
-            }
-        };
-
-        const afterSlideChange = (direction) => {
-            if (direction === "next") {
-                currentIndex = (currentIndex + 1) % imagesList.length;
-            } else {
-                currentIndex =
-                    (currentIndex - 1 + imagesList.length) %
-                    imagesList.length;
-            }
-            updateSlides();
-            resetTrack(false);
-            isAnimating = false;
-        };
-
-        const commitSlide = (direction) => {
-            if (!canSwipe || isAnimating) return;
-            isAnimating = true;
-            const slideWidth = getSlideWidth();
-            const targetDelta = direction === "next" ? -slideWidth : slideWidth;
-            setTrackPosition(targetDelta, true);
-
-            lightboxTrack.addEventListener(
-                "transitionend",
-                () => afterSlideChange(direction),
-                { once: true },
-            );
+            lightboxImgNext.src = imagesList[nextIdx].src;
+            lightboxImgNext.alt = imagesList[nextIdx].alt;
         };
 
         const openLightbox = (index) => {
             currentIndex = index;
-            preloadImages();
             updateSlides();
+            lightboxTrack.style.transition = "none";
+            lightboxTrack.style.transform = canSwipe ? "translateX(-100vw)" : "translateX(0)";
             lightbox.removeAttribute("hidden");
             document.body.style.overflow = "hidden";
-            requestAnimationFrame(() => resetTrack(false));
         };
 
         const closeLightbox = () => {
             lightbox.setAttribute("hidden", "");
             document.body.style.overflow = "";
-            isAnimating = false;
-            clearDragState();
             lightboxImg.src = "";
-            lightboxImgPrev.src = "";
-            lightboxImgNext.src = "";
+            if (canSwipe) {
+                lightboxImgPrev.src = "";
+                lightboxImgNext.src = "";
+            }
         };
 
-        const showNext = (animate) => {
+        const showNext = () => {
             if (!canSwipe) return;
-            if (animate) {
-                commitSlide("next");
-            } else {
+            goToNext();
+        };
+
+        const showPrev = () => {
+            if (!canSwipe) return;
+            goToPrev();
+        };
+
+        const goToNext = () => {
+            lightboxTrack.style.transition = "transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)";
+            lightboxTrack.style.transform = "translateX(-200vw)";
+            setTimeout(() => {
                 currentIndex = (currentIndex + 1) % imagesList.length;
                 updateSlides();
-                resetTrack(false);
-            }
+                lightboxTrack.style.transition = "none";
+                lightboxTrack.style.transform = "translateX(-100vw)";
+            }, 300);
         };
 
-        const showPrev = (animate) => {
-            if (!canSwipe) return;
-            if (animate) {
-                commitSlide("prev");
-            } else {
-                currentIndex =
-                    (currentIndex - 1 + imagesList.length) %
-                    imagesList.length;
+        const goToPrev = () => {
+            lightboxTrack.style.transition = "transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)";
+            lightboxTrack.style.transform = "translateX(0vw)";
+            setTimeout(() => {
+                currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
                 updateSlides();
-                resetTrack(false);
-            }
+                lightboxTrack.style.transition = "none";
+                lightboxTrack.style.transform = "translateX(-100vw)";
+            }, 300);
         };
 
         galleryItems.forEach((item) => {
+            const index = parseInt(item.getAttribute("data-gallery-index"), 10);
+            item.setAttribute("role", "button");
+            item.setAttribute("tabindex", "0");
+            item.setAttribute("aria-label", "View gallery image");
+
             item.addEventListener("click", () => {
-                const index = parseInt(
-                    item.getAttribute("data-gallery-index"),
-                    10,
-                );
                 openLightbox(index);
+            });
+
+            item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(index);
+                }
             });
         });
 
         lightboxClose.addEventListener("click", closeLightbox);
-        lightboxNext.addEventListener("click", () => showNext(false));
-        lightboxPrev.addEventListener("click", () => showPrev(false));
+        lightboxNext.addEventListener("click", showNext);
+        lightboxPrev.addEventListener("click", showPrev);
 
-        lightbox
-            .querySelector(".lightbox-backdrop")
-            .addEventListener("click", closeLightbox);
+        lightbox.querySelector(".lightbox-backdrop").addEventListener("click", closeLightbox);
 
         document.addEventListener("keydown", (e) => {
             if (lightbox.hasAttribute("hidden")) return;
             if (e.key === "Escape") closeLightbox();
-            if (e.key === "ArrowRight") showNext(false);
-            if (e.key === "ArrowLeft") showPrev(false);
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
         });
 
-        if (lightboxContent && canSwipe) {
-            let dragStartX = 0;
-            let dragCurrentX = 0;
-            const dragThreshold = 60;
+        // Touch & Mouse Drag/Swipe Mechanics
+        if (canSwipe) {
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let currentX = 0;
+            let deltaX = 0;
+            let deltaY = 0;
+            let isHorizontalSwipe = false;
 
-            const onDragStart = (clientX) => {
-                if (
-                    lightbox.hasAttribute("hidden") ||
-                    isAnimating ||
-                    !canSwipe
-                ) {
+            const dragStart = (clientX, clientY, target) => {
+                if (target.closest("button, .lightbox-close-premium, .lightbox-nav-premium")) {
                     return;
                 }
-                updateSlides();
-                dragStartX = clientX;
-                dragCurrentX = clientX;
                 isDragging = true;
-                lightboxTrack.classList.add("is-dragging");
-                lightboxContent.classList.add("is-dragging");
+                startX = clientX;
+                startY = clientY;
+                currentX = clientX;
+                deltaX = 0;
+                deltaY = 0;
+                isHorizontalSwipe = false;
+                lightboxTrack.style.transition = "none";
             };
 
-            const onDragMove = (clientX) => {
+            const dragMove = (clientX, clientY) => {
                 if (!isDragging) return;
-                dragCurrentX = clientX;
-                setTrackPosition(dragCurrentX - dragStartX, false);
-            };
+                currentX = clientX;
+                deltaX = currentX - startX;
+                deltaY = clientY - startY;
 
-            const onDragEnd = () => {
-                if (!isDragging) return;
-                clearDragState();
+                if (!isHorizontalSwipe) {
+                    if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                        isHorizontalSwipe = true;
+                    }
+                }
 
-                const delta = dragCurrentX - dragStartX;
-
-                if (delta < -dragThreshold) {
-                    commitSlide("next");
-                } else if (delta > dragThreshold) {
-                    commitSlide("prev");
-                } else {
-                    resetTrack(true);
+                if (isHorizontalSwipe) {
+                    lightboxTrack.style.transform = `translateX(calc(-100vw + ${deltaX}px))`;
                 }
             };
 
-            const isLightboxDragTarget = (target) =>
-                !target.closest(
-                    "button, .lightbox-close-premium, .lightbox-nav-premium",
-                );
+            const dragEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
 
-            const bindDragEvents = (element) => {
-                element.addEventListener(
-                    "touchstart",
-                    (e) => {
-                        if (!isLightboxDragTarget(e.target)) return;
-                        onDragStart(e.touches[0].clientX);
-                    },
-                    { passive: true },
-                );
-
-                element.addEventListener(
-                    "touchmove",
-                    (e) => {
-                        if (!isDragging) return;
-                        onDragMove(e.touches[0].clientX);
-                    },
-                    { passive: true },
-                );
-
-                element.addEventListener("touchend", onDragEnd);
-                element.addEventListener("touchcancel", onDragEnd);
+                if (isHorizontalSwipe) {
+                    const threshold = 80;
+                    if (deltaX < -threshold) {
+                        goToNext();
+                    } else if (deltaX > threshold) {
+                        goToPrev();
+                    } else {
+                        // Bounce back to center
+                        lightboxTrack.style.transition = "transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)";
+                        lightboxTrack.style.transform = "translateX(-100vw)";
+                    }
+                }
+                isHorizontalSwipe = false;
             };
 
-            bindDragEvents(lightboxContent);
-            bindDragEvents(lightbox);
+            lightbox.addEventListener("touchstart", (e) => {
+                dragStart(e.touches[0].clientX, e.touches[0].clientY, e.target);
+            }, { passive: true });
 
-            lightboxContent.addEventListener("mousedown", (e) => {
-                if (!isLightboxDragTarget(e.target)) return;
-                e.preventDefault();
-                onDragStart(e.clientX);
+            lightbox.addEventListener("touchmove", (e) => {
+                dragMove(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+
+            lightbox.addEventListener("touchend", dragEnd);
+            lightbox.addEventListener("touchcancel", dragEnd);
+
+            lightbox.addEventListener("mousedown", (e) => {
+                dragStart(e.clientX, e.clientY, e.target);
             });
 
             window.addEventListener("mousemove", (e) => {
-                if (!isDragging) return;
-                onDragMove(e.clientX);
+                if (isDragging) {
+                    e.preventDefault();
+                    dragMove(e.clientX, e.clientY);
+                }
             });
 
             window.addEventListener("mouseup", () => {
-                if (isDragging) onDragEnd();
-            });
-
-            window.addEventListener("resize", () => {
-                if (!lightbox.hasAttribute("hidden")) {
-                    resetTrack(false);
-                }
+                if (isDragging) dragEnd();
             });
         }
     }
