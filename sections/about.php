@@ -118,7 +118,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
                     <div>
-                        <strong>12+ Premium Brands</strong>
+                        <strong>Multi-Brand Showroom</strong>
                         <span>Side-by-Side Comparison</span>
                     </div>
                 </div>

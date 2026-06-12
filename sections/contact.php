@@ -138,31 +138,16 @@
                             </div>
                         </div>
 
-                        <div class="form-row-premium">
-                            <div class="form-group-premium">
-                                <label for="enquiry-reason">Reason for Contact <span aria-hidden="true">*</span></label>
-                                <div class="input-wrapper-premium select-wrapper-premium">
-                                    <select id="enquiry-reason" name="reason" required>
-                                        <option value="">Select a reason</option>
-                                        <?php foreach ($contact_reasons as $reason) { ?>
-                                        <option value="<?php echo htmlspecialchars($reason); ?>"<?php echo (isset($_GET['reason']) && $_GET['reason'] === $reason) ? ' selected' : ''; ?>><?php echo htmlspecialchars($reason); ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <span class="input-focus-line"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group-premium">
-                                <label for="enquiry-vehicle">Interested Vehicle (optional)</label>
-                                <div class="input-wrapper-premium select-wrapper-premium">
-                                    <select id="enquiry-vehicle" name="vehicle">
-                                        <option value="">Select a vehicle</option>
-                                        <?php foreach ($vehicles as $vehicle) { ?>
-                                        <option value="<?php echo htmlspecialchars($vehicle['name']); ?>"<?php echo (isset($_GET['vehicle']) && $_GET['vehicle'] === $vehicle['name']) ? ' selected' : ''; ?>><?php echo htmlspecialchars($vehicle['name']); ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <span class="input-focus-line"></span>
-                                </div>
+                        <div class="form-group-premium">
+                            <label for="enquiry-reason">Reason for Contact <span aria-hidden="true">*</span></label>
+                            <div class="input-wrapper-premium select-wrapper-premium">
+                                <select id="enquiry-reason" name="reason" required>
+                                    <option value="">Select a reason</option>
+                                    <?php foreach ($contact_reasons as $reason) { ?>
+                                    <option value="<?php echo htmlspecialchars($reason); ?>"<?php echo (isset($_GET['reason']) && $_GET['reason'] === $reason) ? ' selected' : ''; ?>><?php echo htmlspecialchars($reason); ?></option>
+                                    <?php } ?>
+                                </select>
+                                <span class="input-focus-line"></span>
                             </div>
                         </div>
 

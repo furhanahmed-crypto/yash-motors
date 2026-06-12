@@ -54,8 +54,8 @@
         <div class="container">
             <div class="quick-highlights-grid">
                 <div class="q-highlight-item">
-                    <span class="q-num">12+</span>
-                    <span class="q-label">Premium Brands</span>
+                    <span class="q-num">Multi-Brand</span>
+                    <span class="q-label">Showroom Collection</span>
                 </div>
                 <div class="q-highlight-divider"></div>
                 <div class="q-highlight-item">

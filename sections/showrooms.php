@@ -54,9 +54,6 @@
                         <a href="<?php echo htmlspecialchars($showroom['whatsapp']); ?>" class="btn-premium<?php echo $is_featured ? ' btn-premium--ghost showroom-btn-whatsapp--featured' : ' btn-premium--primary'; ?>" target="_blank" rel="noopener noreferrer">
                             <span>WhatsApp</span>
                         </a>
-                        <a href="<?php echo htmlspecialchars($showroom['directions']); ?>" class="btn-premium btn-premium--outline<?php echo $is_featured ? ' showroom-btn-directions--featured' : ''; ?>" target="_blank" rel="noopener noreferrer">
-                            <span>Get Directions</span>
-                        </a>
                     </div>
                 </div>
             </article>
