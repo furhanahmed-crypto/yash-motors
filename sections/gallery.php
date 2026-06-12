@@ -9,10 +9,10 @@
         <?php } ?>
 
         <div class="gallery-grid-premium">
-            <?php 
-            $gallery_index = 0; 
-            foreach ($images['gallery'] as $key => $url) { 
-                $gallery_index++; 
+            <?php
+            $gallery_index = 0;
+            foreach ($images['gallery'] as $key => $url) {
+                $gallery_index++;
                 // Determine a size modifier class for masonry layout
                 $size_class = '';
                 if ($gallery_index === 1) {
@@ -64,8 +64,6 @@
                 </div>
             </div>
         </div>
-        <button class="lightbox-nav-premium lightbox-next-premium" id="lightbox-next" aria-label="Next image">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
+        
     </div>
 </section>
