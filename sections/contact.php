@@ -99,7 +99,7 @@
                         <p>Thank you! We've received your message and will get back to you within 24 hours.</p>
                     </div>
                     <?php } ?>
-                    
+
                     <?php if (!empty($_GET['error'])) { ?>
                     <div class="form-alert-premium form-alert-premium--error" role="alert">
                         <div class="alert-icon">
@@ -111,7 +111,7 @@
 
                     <form class="contact-form-premium" action="<?php echo asset('handlers/enquiry.php'); ?>" method="POST" novalidate>
                         <input type="hidden" name="form_type" value="enquiry">
-                        
+
                         <div class="form-row-premium">
                             <div class="form-group-premium">
                                 <label for="enquiry-name">Full Name <span aria-hidden="true">*</span></label>
@@ -120,11 +120,11 @@
                                     <span class="input-focus-line"></span>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group-premium">
                                 <label for="enquiry-phone">Phone Number <span aria-hidden="true">*</span></label>
                                 <div class="input-wrapper-premium">
-                                    <input type="tel" id="enquiry-phone" name="phone" required autocomplete="tel" placeholder="+91 76809 66594">
+                                    <input type="tel" id="enquiry-phone" name="phone" required autocomplete="tel" placeholder="+91 76809 66597">
                                     <span class="input-focus-line"></span>
                                 </div>
                             </div>

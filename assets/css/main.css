@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Ovo");
+
 /* ==========================================================================
    Yash Motors — Premium Design System & UI Revamp
    ========================================================================== */
@@ -21,7 +23,7 @@
     --section-divider: rgba(255, 255, 255, 0.06);
 
     /* Fonts */
-    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-display: "Ovo", system-ui, sans-serif;
     --font-body: "Manrope", system-ui, sans-serif;
 
     /* Border Radii */
@@ -301,9 +303,9 @@ h4 {
     left: 0;
     right: 0;
     width: 100%;
+    padding: 15px;
     max-width: 100vw;
     z-index: 1000;
-    height: var(--header-h);
     transition:
         background var(--transition),
         box-shadow var(--transition),
@@ -343,9 +345,9 @@ h4 {
 
 .logo-img {
     display: block;
-    height: 44px;
+    height: 60px;
     width: auto;
-    max-width: 180px;
+    max-width: 200px;
     object-fit: contain;
 }
 
@@ -719,22 +721,276 @@ h4 {
     ); /* Extra room for overlapping Hero highlights */
 }
 
-.why-electric-grid-premium {
+.why-electric-split-premium {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
 }
 
-.why-electric-card-premium {
+/* Savings Calculator Panel */
+.savings-calculator-panel {
     position: relative;
     border-radius: var(--radius-lg);
-    background: var(--color-bg);
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     overflow: hidden;
+}
+
+.calculator-glow-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(
+        135deg,
+        var(--color-accent) 0%,
+        transparent 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    transition: opacity var(--transition);
+}
+
+.savings-calculator-panel:hover .calculator-glow-border {
+    opacity: 0.9;
+}
+
+.calculator-inner-premium {
+    padding: 2.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.calculator-header {
+    margin-bottom: 2.25rem;
+}
+
+.calc-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-light);
+    background: rgba(0, 255, 135, 0.1);
+    padding: 0.35rem 0.875rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+.calculator-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.calculator-header p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+}
+
+.calculator-control {
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+}
+
+.control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.commute-value-display {
+    color: var(--color-accent);
+    font-size: 1.125rem;
+}
+
+.commute-value-display strong {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.premium-range-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+    margin: 1.5rem 0 0.5rem;
+    cursor: pointer;
+}
+
+.premium-range-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+}
+
+.premium-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 14px var(--color-accent-glow);
+    cursor: pointer;
+    margin-top: -8px;
+    transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.premium-range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #00ffbf;
+}
+
+.premium-range-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 14px var(--color-accent-glow);
+    cursor: pointer;
+    transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.premium-range-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    background: #00ffbf;
+}
+
+.slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    padding-inline: 2px;
+}
+
+.calculator-results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+}
+
+.calc-result-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.res-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+.res-card-value {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.res-card-value.accent-text {
+    color: var(--color-accent);
+    text-shadow: 0 0 15px rgba(0, 255, 135, 0.1);
+}
+
+.res-card-sub {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.calculator-total-savings {
+    background: linear-gradient(135deg, rgba(0, 255, 135, 0.06) 0%, rgba(0, 255, 135, 0.01) 100%);
+    border: 1px solid rgba(0, 255, 135, 0.15);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.savings-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.savings-label {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-light);
+}
+
+.savings-amount {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    text-shadow: 0 0 25px rgba(0, 255, 135, 0.25);
+}
+
+.savings-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.tag-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+}
+
+/* Benefit Strips Panel */
+.why-electric-benefits-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     height: 100%;
 }
 
-.card-glow-border {
+.benefit-strip-premium {
+    position: relative;
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.benefit-strip-glow {
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -756,91 +1012,74 @@ h4 {
     transition: opacity var(--transition);
 }
 
-.why-electric-card-premium:hover .card-glow-border {
-    opacity: 1;
+.benefit-strip-premium:hover {
+    transform: translateX(6px);
+    border-color: rgba(0, 255, 135, 0.15);
 }
 
-.card-inner-premium {
-    padding: 2.5rem;
+.benefit-strip-premium:hover .benefit-strip-glow {
+    opacity: 0.7;
+}
+
+.benefit-strip-inner {
+    padding: 2rem;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    z-index: 1;
+    gap: 1.75rem;
+    align-items: flex-start;
     position: relative;
+    z-index: 2;
 }
 
-.card-badge-premium {
-    align-self: flex-start;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-primary-light);
-    background: rgba(0, 255, 135, 0.12);
-    padding: 0.35rem 0.875rem;
-    border-radius: 999px;
-    margin-bottom: 2rem;
-}
-
-.icon-wrapper-premium {
-    width: 56px;
-    height: 56px;
+.benefit-icon-box {
+    width: 52px;
+    height: 52px;
     display: grid;
     place-items: center;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    color: var(--color-primary);
-    margin-bottom: 1.75rem;
-    box-shadow: var(--shadow-sm);
-    transition:
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.benefit-strip-premium:hover .benefit-icon-box {
+    background: #062312;
+    color: var(--color-accent);
+    transform: scale(1.06) rotate(2deg);
+    border-color: rgba(0, 255, 135, 0.1);
 }
 
 .icon-svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
-.why-electric-card-premium:hover .icon-wrapper-premium {
-    background: #062312;
-    color: var(--color-accent);
-    transform: scale(1.05) rotate(3deg);
+.benefit-content-box {
+    flex: 1;
 }
 
-.why-electric-card-premium h3 {
-    margin-bottom: 0.875rem;
-    color: var(--color-primary);
-}
-
-.why-electric-card-premium p {
-    color: var(--color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    margin-bottom: 2rem;
-}
-
-.card-link-arrow {
-    margin-top: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.625rem;
-    font-size: 0.875rem;
+.benefit-meta {
+    display: block;
+    font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.benefit-content-box h3 {
+    font-size: 1.25rem;
     color: var(--color-primary);
-    cursor: pointer;
+    margin-bottom: 0.625rem;
 }
 
-.arrow-svg {
-    width: 16px;
-    height: 16px;
-    transition: transform var(--transition);
-}
-
-.why-electric-card-premium:hover .arrow-svg {
-    transform: translateX(4px);
-    color: var(--color-accent-dim);
+.benefit-content-box p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
 }
 
 /* Showroom Highlight Section (About) */
@@ -1496,8 +1735,13 @@ h4 {
 }
 
 /* Testimonials Section */
+.testimonials-carousel {
+    position: relative;
+}
+
 .testimonials-swiper-premium {
     padding-bottom: 4rem;
+    overflow: hidden;
 }
 
 .testimonials-swiper-premium .swiper-wrapper {
@@ -2893,8 +3137,9 @@ body[data-page]:not([data-page="home"]) .site-header {
     .vehicles-grid-premium {
         grid-template-columns: repeat(2, 1fr);
     }
-    .why-electric-grid-premium {
-        grid-template-columns: repeat(2, 1fr);
+    .why-electric-split-premium {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2992,8 +3237,8 @@ body[data-page]:not([data-page="home"]) .site-header {
     }
 
     .nav-drawer-logo-img {
-        height: 40px;
-        max-width: 160px;
+        height: 44px;
+        max-width: 175px;
     }
 
     .nav-list {
@@ -3044,8 +3289,8 @@ body[data-page]:not([data-page="home"]) .site-header {
     }
 
     .logo-img {
-        height: 36px;
-        max-width: 150px;
+        height: 40px;
+        max-width: 165px;
     }
     .logo-img--footer {
         height: 44px;
@@ -3129,10 +3374,28 @@ body[data-page]:not([data-page="home"]) .site-header {
         left: -0.5rem;
     }
 
-    .why-electric-grid-premium,
+    .why-electric-split-premium,
     .vehicles-grid-premium,
     .diff-grid-premium {
         grid-template-columns: 1fr;
+    }
+
+    .calculator-inner-premium {
+        padding: 1.75rem;
+    }
+
+    .calculator-results-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .savings-amount {
+        font-size: 1.875rem;
+    }
+
+    .benefit-strip-inner {
+        padding: 1.5rem;
+        gap: 1.25rem;
     }
 
     .gallery-grid-premium {

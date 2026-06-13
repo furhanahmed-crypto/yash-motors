@@ -9,8 +9,9 @@
         </div>
         <?php } ?>
 
-        <div class="swiper testimonials-swiper-premium reveal">
-            <div class="swiper-wrapper">
+        <div class="testimonials-carousel">
+            <div class="swiper testimonials-swiper-premium">
+                <div class="swiper-wrapper">
                 <?php foreach ($testimonials as $testimonial) { ?>
                 <div class="swiper-slide">
                     <article class="testimonial-card-premium">
@@ -44,8 +45,9 @@
                     </article>
                 </div>
                 <?php } ?>
+                </div>
+                <div class="testimonials-pagination-premium swiper-pagination"></div>
             </div>
-            <div class="testimonials-pagination-premium swiper-pagination"></div>
         </div>
     </div>
 </section>

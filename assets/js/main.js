@@ -389,34 +389,118 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 6. Testimonials Swiper JS Initialization
-    if (typeof Swiper !== "undefined") {
-        new Swiper(".testimonials-swiper-premium", {
+    // 6. Testimonials Swiper
+    const testimonialsEl = document.querySelector(".testimonials-swiper-premium");
+    const testimonialsWrap = document.querySelector(".testimonials-carousel");
+
+    function initTestimonialsSwiper() {
+        if (!testimonialsEl || testimonialsEl.swiper || typeof Swiper === "undefined") {
+            return;
+        }
+
+        const slideCount = testimonialsEl.querySelectorAll(".swiper-slide").length;
+        const paginationEl = testimonialsEl.querySelector(
+            ".testimonials-pagination-premium",
+        );
+
+        const testimonialsSwiper = new Swiper(testimonialsEl, {
             slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            pagination: {
-                el: ".testimonials-pagination-premium",
-                clickable: true,
-            },
+            slidesPerGroup: 1,
+            spaceBetween: 24,
+            speed: 500,
+            rewind: slideCount > 1,
+            watchOverflow: true,
+            grabCursor: true,
+            resistanceRatio: 0.85,
+            longSwipesRatio: 0.3,
+            shortSwipes: true,
+            autoplay:
+                slideCount > 1
+                    ? {
+                          delay: 5000,
+                          disableOnInteraction: true,
+                          pauseOnMouseEnter: true,
+                      }
+                    : false,
+            pagination: paginationEl
+                ? {
+                      el: paginationEl,
+                      clickable: true,
+                  }
+                : undefined,
             breakpoints: {
                 768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
+                    slidesPerView: Math.min(2, slideCount),
+                    spaceBetween: 24,
                 },
                 1024: {
-                    slidesPerView: 3,
+                    slidesPerView: Math.min(3, slideCount),
                     spaceBetween: 30,
                 },
             },
-            speed: 800,
-            grabCursor: true,
         });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => testimonialsSwiper.update(), 150);
+        });
+    }
+
+    if (testimonialsWrap && "IntersectionObserver" in window) {
+        const testimonialsObserver = new IntersectionObserver(
+            (entries, observer) => {
+                if (entries[0].isIntersecting) {
+                    initTestimonialsSwiper();
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 },
+        );
+        testimonialsObserver.observe(testimonialsWrap);
+    } else {
+        initTestimonialsSwiper();
+    }
+
+    // 6.5 Interactive Commute Savings Calculator
+    const slider = document.getElementById("commute-distance-slider");
+    const distanceText = document.getElementById("commute-distance-text");
+    const petrolCostDisplay = document.getElementById("petrol-cost-display");
+    const evCostDisplay = document.getElementById("ev-cost-display");
+    const savingsAmountDisplay = document.getElementById("savings-amount-display");
+
+    if (slider && distanceText && petrolCostDisplay && evCostDisplay && savingsAmountDisplay) {
+        const updateSavings = () => {
+            const distance = parseInt(slider.value, 10);
+            
+            // Update slider value text
+            distanceText.textContent = distance;
+            
+            // Formulas:
+            // Petrol: Daily Distance * 30 days / 40 km/l mileage * 110 Petrol Price
+            const petrolCost = Math.round((distance * 30 / 40) * 110);
+            
+            // EV: Daily Distance * 30 days / 100 km range * 15 Charge Price
+            const evCost = Math.round((distance * 30 / 100) * 15);
+            
+            // Savings
+            const monthlySavings = petrolCost - evCost;
+            const yearlySavings = monthlySavings * 12;
+            
+            // Format currency helper
+            const formatCurrency = (amount) => "₹" + amount.toLocaleString("en-IN");
+            
+            // Update displays
+            petrolCostDisplay.textContent = formatCurrency(petrolCost);
+            evCostDisplay.textContent = formatCurrency(evCost);
+            savingsAmountDisplay.textContent = formatCurrency(yearlySavings);
+        };
+        
+        // Listen for input changes
+        slider.addEventListener("input", updateSavings);
+        
+        // Initial execution
+        updateSavings();
     }
 
     // 7. Pre-fill Contact Form Parameters from URL
