@@ -72,9 +72,11 @@
     </div>
 
     <!-- Smooth floating scroll indicator -->
-    <a href="#why-electric" class="scroll-indicator" aria-label="Scroll down to next section">
-        <div class="mouse-icon">
-            <span class="mouse-wheel"></span>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down to Showroom Experience">
+        <div class="scroll-chevron-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="chevron-down-svg" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
         </div>
     </a>
 </section>

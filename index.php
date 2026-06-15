@@ -9,8 +9,8 @@ require __DIR__ . '/includes/init.php';
 
 <main>
     <?php require __DIR__ . '/sections/hero.php'; ?>
-    <?php require __DIR__ . '/sections/why-electric.php'; ?>
     <?php require __DIR__ . '/sections/about.php'; ?>
+    <?php require __DIR__ . '/sections/why-electric.php'; ?>
     <?php require __DIR__ . '/sections/service-teaser.php'; ?>
     <?php require __DIR__ . '/sections/gallery.php'; ?>
     <?php require __DIR__ . '/sections/testimonials.php'; ?>

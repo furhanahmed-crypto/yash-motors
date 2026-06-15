@@ -12,7 +12,7 @@ if (!defined('YASH_MOTORS_INIT')) {
     <meta name="keywords" content="Yash Motors, electric scooter, EV showroom, Kompally, Hyderabad, electric two-wheeler, EV service centre">
     <meta name="author" content="Yash Motors">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0c1f17">
+    <meta name="theme-color" content="#f5f8f6">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">

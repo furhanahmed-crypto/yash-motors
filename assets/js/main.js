@@ -22,6 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial run
 
+    // Smooth scroll for scroll indicator
+    const scrollIndicator = document.querySelector(".scroll-indicator");
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = scrollIndicator.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = header ? header.offsetHeight : 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    }
+
     // 2. Mobile Menu Toggle (right-side drawer)
     const navToggle = document.getElementById("nav-toggle");
     const mainNav = document.getElementById("main-nav");
