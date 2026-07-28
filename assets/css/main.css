@@ -394,7 +394,6 @@ h4 {
     width: auto;
     max-width: 200px;
     object-fit: contain;
-    filter: brightness(0) saturate(100%);
     opacity: 0.9;
 }
 

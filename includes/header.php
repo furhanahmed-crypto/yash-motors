@@ -7,7 +7,7 @@ if (!defined('YASH_MOTORS_INIT')) {
     <div class="container header-inner">
         <a href="<?php echo page_url('index'); ?>" class="logo" aria-label="<?php echo htmlspecialchars($site['name']); ?> home">
             <img
-                src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                src="<?php echo asset('assets/images/yash-motors-light.png'); ?>"
                 alt="<?php echo htmlspecialchars($site['name']); ?>"
                 class="logo-img"
                 width="180"
@@ -30,7 +30,7 @@ if (!defined('YASH_MOTORS_INIT')) {
     <div class="nav-drawer-brand">
         <a href="<?php echo page_url('index'); ?>" class="nav-drawer-logo" aria-label="<?php echo htmlspecialchars($site['name']); ?> home">
             <img
-                src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                src="<?php echo asset('assets/images/yash-motors-light.png'); ?>"
                 alt="<?php echo htmlspecialchars($site['name']); ?>"
                 class="logo-img nav-drawer-logo-img"
                 width="180"

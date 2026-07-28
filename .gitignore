@@ -1,2 +1,4 @@
 storage/submissions/*.json
 !storage/submissions/.gitkeep
+.DS_Store
+**/.DS_Store

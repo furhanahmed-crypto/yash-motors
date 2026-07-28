@@ -10,7 +10,7 @@ if (!defined('YASH_MOTORS_INIT')) {
             <div class="footer-brand">
                 <a href="<?php echo page_url('index'); ?>" class="logo logo--footer">
                     <img
-                        src="<?php echo asset('assets/images/yash-motors.png'); ?>"
+                        src="<?php echo asset('assets/images/yash-motors-light.png'); ?>"
                         alt="<?php echo htmlspecialchars($site['name']); ?>"
                         class="logo-img logo-img--footer"
                         width="200"
