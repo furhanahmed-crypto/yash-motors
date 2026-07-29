@@ -1,4 +1,5 @@
 <section class="section faq" id="faq">
+    <div class="glow-orb glow-orb--right" aria-hidden="true"></div>
     <div class="container">
         <div class="section-header-premium reveal">
             <span class="eyebrow-premium">Common Questions</span>

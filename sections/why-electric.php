@@ -85,8 +85,13 @@
                     )
                 );
                 
-                foreach ($why_electric_custom as $index => $item) { ?>
-                <div class="benefit-strip-premium reveal" data-index="<?php echo $index; ?>">
+                foreach ($why_electric_custom as $index => $item) { 
+                    $benefit_color_class = '';
+                    if ($index === 0) $benefit_color_class = 'card-theme--green';
+                    elseif ($index === 1) $benefit_color_class = 'card-theme--gold';
+                    elseif ($index === 2) $benefit_color_class = 'card-theme--blue';
+                ?>
+                <div class="benefit-strip-premium <?php echo $benefit_color_class; ?> reveal" data-index="<?php echo $index; ?>">
                     <div class="benefit-strip-glow"></div>
                     <div class="benefit-strip-inner">
                         <div class="benefit-icon-box">

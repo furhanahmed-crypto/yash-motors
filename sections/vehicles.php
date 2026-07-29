@@ -1,4 +1,5 @@
 <section class="section vehicles-premium" id="vehicles">
+    <div class="glow-orb glow-orb--right" aria-hidden="true"></div>
     <div class="container">
         <?php if (empty($page_heading)) { ?>
         <div class="section-header-premium reveal">

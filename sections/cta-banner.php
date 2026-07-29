@@ -1,4 +1,6 @@
 <section class="section cta-banner" id="visit-us">
+    <div class="glow-orb glow-orb--left" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb--right" aria-hidden="true"></div>
     <div class="container">
         <div class="cta-banner-inner reveal">
             <h2><?php echo htmlspecialchars($cta_banner['heading']); ?></h2>

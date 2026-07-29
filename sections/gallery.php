@@ -1,4 +1,5 @@
 <section class="section gallery-premium" id="gallery">
+    <div class="glow-orb glow-orb--left" aria-hidden="true"></div>
     <div class="container">
         <?php if (empty($page_heading)) { ?>
         <div class="section-header-premium reveal">

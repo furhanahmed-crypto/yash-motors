@@ -282,32 +282,6 @@ $showrooms = array(
         'directions' => 'https://maps.google.com/?q=Yash+Motors+Kompally+Hyderabad',
         'featured'   => true,
     ),
-    array(
-        'name'       => 'Geetha Motors',
-        'badge'      => 'Gopanpally · Main Showroom',
-        'address'    => '#1-100/29/12/2, Gopanpally, Hyderabad, Telangana 500084',
-        'phones'     => array('9959629958', '8919430619'),
-        'hours'      => array(
-            'Mon – Sat · 9:30 AM – 8:30 PM',
-            'Sun · 10:00 AM – 6:00 PM',
-        ),
-        'whatsapp'   => 'https://wa.me/919959629958',
-        'directions' => 'https://maps.google.com/?q=Geetha+Motors+Gopanpally+Hyderabad',
-        'featured'   => false,
-    ),
-    array(
-        'name'       => 'Wellexsa Motors',
-        'badge'      => 'Krishna Reddypet · Branch Showroom',
-        'address'    => 'Plot No. 12, Krishna Reddypet Main Road, Hyderabad, Telangana 500090',
-        'phones'     => array('8919430619'),
-        'hours'      => array(
-            'Mon – Sat · 9:30 AM – 8:30 PM',
-            'Sun · 10:00 AM – 6:00 PM',
-        ),
-        'whatsapp'   => 'https://wa.me/918919430619',
-        'directions' => 'https://maps.google.com/?q=Wellexsa+Motors+Krishna+Reddypet+Hyderabad',
-        'featured'   => false,
-    ),
 );
 
 $contact_reasons = array(

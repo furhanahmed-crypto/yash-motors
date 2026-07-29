@@ -13,8 +13,27 @@
                 $is_reversed = ($index % 2 === 1);
                 $image_key = !empty($service['image_key']) ? $service['image_key'] : 'sales';
                 $image_url = isset($images['services'][$image_key]) ? $images['services'][$image_key] : $images['gallery']['item_1'];
+                
+                $service_theme = '';
+                switch ($service['icon']) {
+                    case 'factory':
+                        $service_theme = 'card-theme--purple';
+                        break;
+                    case 'check':
+                        $service_theme = 'card-theme--gold';
+                        break;
+                    case 'shield':
+                        $service_theme = 'card-theme--green';
+                        break;
+                    case 'battery':
+                        $service_theme = 'card-theme--blue';
+                        break;
+                    case 'research':
+                        $service_theme = 'card-theme--red';
+                        break;
+                }
             ?>
-            <article class="service-card-premium service-card-premium--split<?php echo $is_reversed ? ' service-card-premium--reverse' : ''; ?> reveal" data-index="<?php echo $index; ?>">
+            <article class="service-card-premium <?php echo $service_theme; ?> service-card-premium--split<?php echo $is_reversed ? ' service-card-premium--reverse' : ''; ?> reveal" data-index="<?php echo $index; ?>">
                 <div class="service-card-glow"></div>
                 <div class="service-card-split">
                     <div class="service-card-content">

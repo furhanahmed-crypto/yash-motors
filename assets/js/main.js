@@ -551,4 +551,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+
+    // Soft magnetic hover for primary CTAs
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!prefersReducedMotion) {
+        document
+            .querySelectorAll(".btn-premium--primary, .btn.btn--primary")
+            .forEach((btn) => {
+                btn.addEventListener("pointermove", (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.12}px, ${y * 0.16 - 3}px)`;
+                });
+                btn.addEventListener("pointerleave", () => {
+                    btn.style.transform = "";
+                });
+            });
+    }
 });

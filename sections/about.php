@@ -35,8 +35,14 @@
                 <h2>Values that Drive Us</h2>
             </div>
             <div class="values-grid-premium">
-                <?php foreach ($about_values as $index => $value) { ?>
-                <article class="value-card-premium">
+                <?php foreach ($about_values as $index => $value) { 
+                    $value_theme = '';
+                    if ($index === 0) $value_theme = 'card-theme--green';
+                    elseif ($index === 1) $value_theme = 'card-theme--blue';
+                    elseif ($index === 2) $value_theme = 'card-theme--gold';
+                    elseif ($index === 3) $value_theme = 'card-theme--purple';
+                ?>
+                <article class="value-card-premium <?php echo $value_theme; ?>">
                     <div class="value-index">0<?php echo $index + 1; ?></div>
                     <h3><?php echo htmlspecialchars($value['title']); ?></h3>
                     <p><?php echo htmlspecialchars($value['text']); ?></p>
@@ -52,8 +58,13 @@
                 <h2>Why Choose Yash Motors?</h2>
             </div>
             <div class="diff-grid-premium">
-                <?php foreach ($about_differentiators as $row) { ?>
-                <div class="diff-card-premium">
+                <?php foreach ($about_differentiators as $index => $row) { 
+                    $diff_theme = '';
+                    if ($index === 0) $diff_theme = 'card-theme--green';
+                    elseif ($index === 1) $diff_theme = 'card-theme--blue';
+                    elseif ($index === 2) $diff_theme = 'card-theme--gold';
+                ?>
+                <div class="diff-card-premium <?php echo $diff_theme; ?>">
                     <div class="diff-feature-badge">YASH ADVANTAGE</div>
                     <h3><?php echo htmlspecialchars($row['feature']); ?></h3>
                     <p><?php echo htmlspecialchars($row['benefit']); ?></p>
