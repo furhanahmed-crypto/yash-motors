@@ -561,6 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .querySelectorAll(".btn-premium--primary, .btn.btn--primary")
             .forEach((btn) => {
                 btn.addEventListener("pointermove", (e) => {
+                    if (btn.classList.contains("btn-submitting")) return;
                     const rect = btn.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
@@ -570,5 +571,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     btn.style.transform = "";
                 });
             });
+    }
+
+    // 8. Contact Form Submitting State
+    const contactForm = document.querySelector(".contact-form-premium");
+    if (contactForm) {
+        contactForm.addEventListener("submit", () => {
+            const submitBtn = contactForm.querySelector("button[type='submit']");
+            if (submitBtn) {
+                // Add a submitting state class
+                submitBtn.classList.add("btn-submitting");
+                submitBtn.style.pointerEvents = "none";
+                submitBtn.style.opacity = "0.8";
+                
+                const btnText = submitBtn.querySelector("span");
+                const btnIcon = submitBtn.querySelector(".btn-arrow");
+                
+                if (btnText) {
+                    btnText.textContent = "Sending Message...";
+                }
+                if (btnIcon) {
+                    btnIcon.outerHTML = `
+                        <svg class="btn-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width: 18px; height: 18px; animation: iconSpin 1s linear infinite; margin-left: 0.5rem; flex-shrink: 0;">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.25"></circle>
+                            <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path>
+                        </svg>
+                    `;
+                }
+            }
+        });
     }
 });

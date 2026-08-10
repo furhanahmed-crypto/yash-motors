@@ -26,11 +26,12 @@ return [
     'about' => [
         'facility'    => asset('assets/images/about-us-img.png'),
         'innovation'  => IMAGE_BASE_URL . 'img-5.webp',
+        'founder'     => asset('assets/images/founders-image.png'),
     ],
     'services' => [
         'sales'       => asset('assets/images/services/img-1.jpg'),
         'finance'     => asset('assets/images/services/img-2.jpg'),
-        'servicing'   => asset('assets/images/services/img-10.jpg'),
+        'servicing'   => asset('assets/images/services/img-12.jpg'),
         'battery'     => asset('assets/images/services/img-3.jpg'),
         'spares'      => asset('assets/images/services/img-11.jpg'),
         'breakdown'   => asset('assets/images/services/img-7.jpg'),
@@ -38,7 +39,7 @@ return [
     'gallery' => [
         'item_1' => asset('assets/images/services/img-1.jpg'),
         'item_2' => asset('assets/images/services/img-2.jpg'),
-        'item_3' => asset('assets/images/services/img-10.jpg'),
+        'item_3' => asset('assets/images/services/img-12.jpg'),
         'item_4' => asset('assets/images/services/img-3.jpg'),
         'item_5' => asset('assets/images/services/img-11.jpg'),
         'item_6' => asset('assets/images/services/img-7.jpg'),

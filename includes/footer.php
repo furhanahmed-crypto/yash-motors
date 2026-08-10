@@ -14,7 +14,7 @@ if (!defined('YASH_MOTORS_INIT')) {
                         alt="<?php echo htmlspecialchars($site['name']); ?>"
                         class="logo-img logo-img--footer"
                         width="200"
-                        height="54"
+                        height="66"
                         decoding="async"
                     >
                 </a>

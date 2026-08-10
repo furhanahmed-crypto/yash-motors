@@ -297,6 +297,33 @@ $service_teaser = array(
     'cta'     => 'View All Services',
 );
 
+$founder_message = array(
+    'eyebrow'  => 'Founder\'s Message',
+    'heading'  => 'Built for Hyderabad\'s Electric Future',
+    'quote'    => 'When I started Yash Motors in Kompally, I noticed a simple gap: Hyderabad was moving toward electric vehicles, but there was nowhere people could get honest answers without sales pressure.',
+    'message'  => 'That\'s why we built our showroom around test rides, side-by-side comparisons across brands, and a team trained to talk straight about range, battery life, and durability — plus a full service facility right alongside it, because owning an EV means we\'re with you long after the sale. We\'re a Kompally business first, and that shapes everything — transparent pricing, quick loan approvals, genuine spares, and a promise to be here for the life of your vehicle, not just the sale. I invite you to visit us, ask us anything, and see the difference for yourself.',
+    'name'     => 'Yashwanth',
+    'role'     => 'Founder, Yash Motors',
+    'amenities' => array(
+        array(
+            'title' => 'Honest Guidance',
+            'text'  => 'Straight talk on range, battery life, and durability — with no sales pressure.',
+        ),
+        array(
+            'title' => 'Multi-Brand Showroom',
+            'text'  => 'Test rides and side-by-side comparisons across leading EV brands.',
+        ),
+        array(
+            'title' => 'Service Alongside Sales',
+            'text'  => 'A full service facility next to the showroom for life after purchase.',
+        ),
+        array(
+            'title' => 'Kompally First',
+            'text'  => 'Transparent pricing, quick loans, genuine spares — built for our neighbourhood.',
+        ),
+    ),
+);
+
 $cta_banner = array(
     'heading' => 'Ready to Go Electric? Visit Us in Kompally Today.',
     'text'    => 'Walk in any day and explore our range. Our consultants are on hand to match you with the perfect electric vehicle for your lifestyle and budget.',

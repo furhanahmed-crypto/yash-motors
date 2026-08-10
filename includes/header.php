@@ -11,7 +11,7 @@ if (!defined('YASH_MOTORS_INIT')) {
                 alt="<?php echo htmlspecialchars($site['name']); ?>"
                 class="logo-img"
                 width="180"
-                height="48"
+                height="60"
                 decoding="async">
         </a>
 
@@ -34,7 +34,7 @@ if (!defined('YASH_MOTORS_INIT')) {
                 alt="<?php echo htmlspecialchars($site['name']); ?>"
                 class="logo-img nav-drawer-logo-img"
                 width="180"
-                height="48"
+                height="60"
                 decoding="async">
         </a>
     </div>

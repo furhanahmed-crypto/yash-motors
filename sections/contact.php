@@ -2,11 +2,11 @@
     <div class="glow-orb glow-orb--left" aria-hidden="true"></div>
     <div class="container">
         <?php if (empty($page_heading)) { ?>
-        <div class="section-header-premium reveal">
-            <span class="eyebrow-premium">Get in Touch</span>
-            <h2>We're Right Here in Kompally — Come Say Hello</h2>
-            <p>Whether you have a question about a vehicle, want to book a service appointment, or simply want to browse our showroom — we're easy to find and always happy to help.</p>
-        </div>
+            <div class="section-header-premium reveal">
+                <span class="eyebrow-premium">Get in Touch</span>
+                <h2>We're Right Here in Kompally — Come Say Hello</h2>
+                <p>Whether you have a question about a vehicle, want to book a service appointment, or simply want to browse our showroom — we're easy to find and always happy to help.</p>
+            </div>
         <?php } ?>
 
         <div class="contact-grid-premium">
@@ -15,7 +15,10 @@
                 <div class="contact-cards-stack">
                     <div class="contact-card-premium card-theme--green">
                         <div class="contact-card-icon-premium" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                         </div>
                         <div class="contact-card-text-premium">
                             <h3>Showroom &amp; Service Address</h3>
@@ -25,7 +28,9 @@
 
                     <div class="contact-card-premium card-theme--blue">
                         <div class="contact-card-icon-premium" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
                         </div>
                         <div class="contact-card-text-premium">
                             <h3>Phone / WhatsApp</h3>
@@ -35,7 +40,9 @@
 
                     <div class="contact-card-premium card-theme--purple">
                         <div class="contact-card-icon-premium" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
                         </div>
                         <div class="contact-card-text-premium">
                             <h3>Email Address</h3>
@@ -45,7 +52,10 @@
 
                     <div class="contact-card-premium card-theme--gold">
                         <div class="contact-card-icon-premium" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
                         </div>
                         <div class="contact-card-text-premium">
                             <h3>Operating Hours</h3>
@@ -69,8 +79,7 @@
                             allowfullscreen=""
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            title="Yash Motors location on Google Maps"
-                        ></iframe>
+                            title="Yash Motors location on Google Maps"></iframe>
                     </div>
                     <div class="map-actions-premium">
                         <a href="<?php echo htmlspecialchars($site['map_directions']); ?>" class="btn-premium btn-premium--outline btn-premium--block" target="_blank" rel="noopener noreferrer">
@@ -89,27 +98,33 @@
                 <div class="form-panel-glow"></div>
                 <div class="form-panel-inner">
                     <h3>Send Us a Message</h3>
-                    <p class="form-panel-subtitle">Fill out the form below, and our Kompally team will get back to you within 24 hours.</p>
+                    <p class="form-panel-subtitle">Fill out the form below, and our Kompally team will get back to you soon.</p>
 
                     <?php if (!empty($_GET['success'])) { ?>
-                    <div class="form-alert-premium form-alert-premium--success" role="alert">
-                        <div class="alert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <div class="form-alert-premium form-alert-premium--success" role="alert">
+                            <div class="alert-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                            </div>
+                            <p>Thank you! We've received your message and will get back to you soon.</p>
                         </div>
-                        <p>Thank you! We've received your message and will get back to you within 24 hours.</p>
-                    </div>
                     <?php } ?>
 
                     <?php if (!empty($_GET['error'])) { ?>
-                    <div class="form-alert-premium form-alert-premium--error" role="alert">
-                        <div class="alert-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <div class="form-alert-premium form-alert-premium--error" role="alert">
+                            <div class="alert-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                                </svg>
+                            </div>
+                            <p><?php echo htmlspecialchars($_GET['error']); ?></p>
                         </div>
-                        <p><?php echo htmlspecialchars($_GET['error']); ?></p>
-                    </div>
                     <?php } ?>
 
-                    <form class="contact-form-premium" action="<?php echo asset('handlers/enquiry.php'); ?>" method="POST" novalidate>
+                    <form class="contact-form-premium" action="<?php echo asset('send.php'); ?>" method="POST" novalidate>
                         <input type="hidden" name="form_type" value="enquiry">
 
                         <div class="form-row-premium">
@@ -144,7 +159,7 @@
                                 <select id="enquiry-reason" name="reason" required>
                                     <option value="">Select a reason</option>
                                     <?php foreach ($contact_reasons as $reason) { ?>
-                                    <option value="<?php echo htmlspecialchars($reason); ?>"<?php echo (isset($_GET['reason']) && $_GET['reason'] === $reason) ? ' selected' : ''; ?>><?php echo htmlspecialchars($reason); ?></option>
+                                        <option value="<?php echo htmlspecialchars($reason); ?>" <?php echo (isset($_GET['reason']) && $_GET['reason'] === $reason) ? ' selected' : ''; ?>><?php echo htmlspecialchars($reason); ?></option>
                                     <?php } ?>
                                 </select>
                                 <span class="input-focus-line"></span>
