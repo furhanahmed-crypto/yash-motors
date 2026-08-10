@@ -8,6 +8,20 @@ require 'php-mailer/SMTP.php';
 require 'php-mailer/Exception.php';
 require_once __DIR__ . '/config/app.php';
 
+$mailConfigPath = __DIR__ . '/config/mail.php';
+if (!file_exists($mailConfigPath)) {
+    http_response_code(500);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $error = urlencode('Mail configuration is missing. Please contact the site administrator.');
+        header('Location: ' . site_url('contact.php?error=' . $error));
+    } else {
+        header('Location: ' . site_url('contact.php'));
+    }
+    exit;
+}
+
+$mailConfig = require $mailConfigPath;
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ' . site_url('contact.php'));
     exit;
@@ -28,24 +42,22 @@ if (empty($name) || empty($phone) || empty($reason) || empty($message)) {
 $mail = new PHPMailer(true);
 
 try {
-    // Server settings
     $mail->isSMTP();
     $mail->SMTPAuth   = true;
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->Port       = 587;
+    $mail->Host       = $mailConfig['host'];
+    $mail->Port       = $mailConfig['port'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Username   = 'yashcomputer971@gmail.com';
-    $mail->Password   = 'frun xkag sgzt yoxw'; // Gmail App Password
+    $mail->Username   = $mailConfig['username'];
+    $mail->Password   = $mailConfig['password'];
 
-    // Recipients
-    $mail->setFrom('yashcomputer971@gmail.com', 'Yash Motors Website');
-    $mail->addAddress('f4rh4n6710@gmail.com');
-    $mail->addAddress('yashcomputer971@gmail.com');
+    $mail->setFrom($mailConfig['from_email'], $mailConfig['from_name']);
+    foreach ($mailConfig['to'] as $recipient) {
+        $mail->addAddress($recipient);
+    }
 
-    // Content
     $mail->isHTML(true);
     $mail->Subject = 'New Contact Enquiry: ' . $reason;
-    
+
     $body  = '<h2>New Contact Form Submission</h2>';
     $body .= '<p>You have received a new enquiry from the Yash Motors website contact form.</p>';
     $body .= '<table border="0" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-family: sans-serif; font-size: 14px;">';

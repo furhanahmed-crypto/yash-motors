@@ -1,4 +1,5 @@
 storage/submissions/*.json
 !storage/submissions/.gitkeep
+config/mail.php
 .DS_Store
 **/.DS_Store
