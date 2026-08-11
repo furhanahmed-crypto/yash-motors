@@ -26,7 +26,7 @@ return [
     'about' => [
         'facility'    => asset('assets/images/about-us-img.png'),
         'innovation'  => IMAGE_BASE_URL . 'img-5.webp',
-        'founder'     => asset('assets/images/founders-image.png'),
+        'founder'     => asset('assets/images/hero-image.png'),
     ],
     'services' => [
         'sales'       => asset('assets/images/services/img-1.jpg'),
