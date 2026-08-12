@@ -3995,7 +3995,11 @@ body[data-page]:not([data-page="home"]) .site-header {
     }
 
     .founder-media-frame {
-        aspect-ratio: 5 / 4;
+        aspect-ratio: 4 / 5;
+    }
+
+    .founder-media-frame img {
+        object-position: top center;
     }
 
     .founder-floating-badge {
